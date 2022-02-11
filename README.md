@@ -15,3 +15,7 @@ make deps
 ```bash
 make init
 ```
+
+```bash
+make playbook
+```
