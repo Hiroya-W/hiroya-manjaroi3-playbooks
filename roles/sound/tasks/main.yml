@@ -10,3 +10,13 @@
     name: pavucontrol
     state: present
   become: yes
+
+- name: Check if pulseaudio process is running
+  shell: "ps ax | grep pulseaudio | grep -v grep"
+  register: result
+  ignore_errors: True
+  changed_when: False
+
+- name: Start pulseaudio
+  command: pulseaudio --start
+  when: result.rc == 1
