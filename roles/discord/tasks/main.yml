@@ -1,0 +1,5 @@
+---
+- name: Install discord
+  pacman:
+    name: discord
+  become: yes

@@ -4,3 +4,4 @@
     - { role: fonts, tags: fonts }
     - { role: sound, tags: sound }
     - { role: bluetooth, tags: bluetooth }
+    - { role: discord, tags: discord }
