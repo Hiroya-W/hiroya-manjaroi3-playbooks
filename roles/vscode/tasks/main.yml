@@ -1,0 +1,8 @@
+---
+- name: Install visual-studio-code
+  kewlfft.aur.aur:
+    use: yay
+    name: visual-studio-code-bin
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
