@@ -1,0 +1,14 @@
+---
+- name: Install bluetooth libraries
+  pacman:
+    name:
+      - bluez
+      - bluez-libs
+      - bluez-utils
+      - pulseaudio-bluetooth
+  become: yes
+
+- name: Install frontend to control bluetooth
+  pacman:
+    name: blueman
+  become: yes
