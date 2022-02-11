@@ -5,3 +5,4 @@
     - { role: sound, tags: sound }
     - { role: bluetooth, tags: bluetooth }
     - { role: discord, tags: discord }
+    - { role: slack, tags: slack }
