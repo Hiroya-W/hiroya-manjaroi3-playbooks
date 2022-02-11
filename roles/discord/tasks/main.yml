@@ -2,4 +2,5 @@
 - name: Install discord
   pacman:
     name: discord
+    state: present
   become: yes

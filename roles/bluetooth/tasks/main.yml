@@ -6,9 +6,11 @@
       - bluez-libs
       - bluez-utils
       - pulseaudio-bluetooth
+    state: present
   become: yes
 
 - name: Install frontend to control bluetooth
   pacman:
     name: blueman
+    state: present
   become: yes
