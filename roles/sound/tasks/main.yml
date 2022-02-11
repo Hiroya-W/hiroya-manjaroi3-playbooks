@@ -1,12 +1,12 @@
 ---
 - name: Install pulseaudio
   pacman:
-      name: pulseaudio
-      state: present
+    name: pulseaudio
+    state: present
   become: yes
 
 - name: Install frontend for pulseaudio
   pacman:
-      name: pavucontrol
-      state: present
+    name: pavucontrol
+    state: present
   become: yes

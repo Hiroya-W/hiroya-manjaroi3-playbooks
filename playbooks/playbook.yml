@@ -1,7 +1,7 @@
 ---
 - hosts: local
   roles:
-      - role: fonts
-        tags: fonts
-      - role: sound
-        tags: sound
+    - role: fonts
+      tags: fonts
+    - role: sound
+      tags: sound

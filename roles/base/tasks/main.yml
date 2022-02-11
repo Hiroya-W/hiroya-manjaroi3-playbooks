@@ -5,7 +5,7 @@
 
 - name: Refresh pacman mirrors
   pacman:
-      update_cache: yes
+    update_cache: yes
   become: yes
 
 - import_tasks: user.yml

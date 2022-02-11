@@ -1,5 +1,5 @@
 ---
 - hosts: local
   roles:
-      - role: base
-        tags: bose
+    - role: base
+      tags: bose
