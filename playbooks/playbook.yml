@@ -3,3 +3,5 @@
   roles:
       - role: fonts
         tags: fonts
+      - role: sound
+        tags: sound
