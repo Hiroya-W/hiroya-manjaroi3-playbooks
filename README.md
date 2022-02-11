@@ -1,7 +1,17 @@
 # hiroya-manjaroi3-playbooks
 
-## playbook実行
+## Install dependencies
 
 ```bash
-ansible-playbook playbook.yml
+poetry install
+```
+
+```bash
+make deps
+```
+
+## Run playbook
+
+```bash
+make init
 ```
