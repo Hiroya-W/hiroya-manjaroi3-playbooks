@@ -7,3 +7,4 @@
     - { role: discord, tags: discord }
     - { role: slack, tags: slack }
     - { role: vscode, tags: vscode }
+    - { role: browsers, tags: browsers }

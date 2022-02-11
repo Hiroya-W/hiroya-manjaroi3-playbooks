@@ -1,0 +1,20 @@
+---
+- name: Uninstall palemoon
+  pacman:
+    name: palemoon-bin
+    state: absent
+  become: yes
+
+- name: Install google-chrome
+  kewlfft.aur.aur:
+    use: yay
+    name: google-chrome
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
+
+- name: Set default browser for http
+  command: xdg-mime default google-chrome.desktop x-scheme-handler/http
+
+- name: Set default browser for https
+  command: xdg-mime default google-chrome.desktop x-scheme-handler/https
