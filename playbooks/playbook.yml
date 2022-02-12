@@ -10,3 +10,4 @@
     - { role: browsers, tags: browsers }
     - { role: dotfiles, tags: dotfiles }
     - { role: fcitx, tags: fcitx }
+    - { role: eww, tags: eww }

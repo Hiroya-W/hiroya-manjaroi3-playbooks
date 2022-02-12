@@ -1,0 +1,47 @@
+---
+- name: Install dependencies
+  pacman:
+    name:
+      - base-devel
+      - gtk3
+      - pango
+      - gdk-pixbuf2
+      - cairo
+      - glib2
+      - gcc-libs
+      - glibc
+    state: present
+  become: yes
+
+- name: "Create work directory to install eww"
+  file:
+    path: "{{ eww.work_dir }}"
+    state: directory
+  become: yes
+
+- name: Clone eww repository
+  git:
+    repo: "{{ eww.url }}"
+    dest: "{{ eww.work_dir }}/eww"
+    version: "{{ eww.version }}"
+    accept_hostkey: yes
+    update: yes
+
+- name: Build eww
+  command: cargo build --release
+  args:
+    chdir: "{{ eww.work_dir }}/eww"
+
+- name: Install eww in {{ eww.install_dir }}
+  copy:
+    src: "{{ eww.work_dir }}/eww/target/release/eww"
+    dest: "{{ eww.install_dir }}/"
+    remote_src: yes
+  become: yes
+
+- name: "Make eww binary executable"
+  file:
+    path: "{{ eww.install_dir }}/eww"
+    state: file
+    mode: a+x
+  become: yes
