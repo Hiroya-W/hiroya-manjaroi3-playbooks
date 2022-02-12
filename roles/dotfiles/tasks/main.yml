@@ -11,11 +11,11 @@
 - name: Clone user dotfiles
   git:
     repo: "{{ dotfiles.url }}"
-    dest: /home/{{ user.name }}/{{ dotfiles.destination }}
+    dest: /home/{{ ansible_env.USER }}/{{ dotfiles.destination }}
     accept_hostkey: yes
     update: no
   when: dotfiles is defined
 
 - name: Install user dotfiles
-  command: env RCRC=/home/{{ user.name }}/{{ dotfiles.destination }}/rcrc rcup
+  command: env RCRC=/home/{{ ansible_env.USER }}/{{ dotfiles.destination }}/rcrc rcup
   when: dotfiles is defined

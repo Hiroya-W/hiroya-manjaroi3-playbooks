@@ -2,9 +2,6 @@
 aur_builder_user: aur_builder
 nvidia_gpu_ready: True
 
-user:
-  name: hiroya
-
 dotfiles:
   url: git@github.com:Hiroya-W/dotfiles.git
   destination: dotfiles
