@@ -1,3 +1,7 @@
 ---
+roles:
+  - name: hurricanehrndz.rustup
 collections:
   - name: kewlfft.aur
+    version: 0.10.0
+    source: https://galaxy.ansible.com
