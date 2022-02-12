@@ -1,0 +1,9 @@
+---
+- name: Install fcitx-tools
+  pacman:
+    name:
+      - fcitx-im
+      - fcitx-configtool
+      - fcitx-mozc
+    state: present
+  become: yes
