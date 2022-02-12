@@ -13,7 +13,7 @@
     repo: "{{ dotfiles.url }}"
     dest: /home/{{ user.name }}/{{ dotfiles.destination }}
     accept_hostkey: yes
-    update: yes
+    update: no
   when: dotfiles is defined
 
 - name: Install user dotfiles
