@@ -1,0 +1,21 @@
+---
+- name: Install rcm
+  kewlfft.aur.aur:
+    use: yay
+    name: rcm
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
+  when: dotfiles is defined
+
+- name: Clone user dotfiles
+  git:
+    repo: "{{ dotfiles.url }}"
+    dest: /home/{{ user.name }}/{{ dotfiles.destination }}
+    accept_hostkey: yes
+    update: yes
+  when: dotfiles is defined
+
+- name: Install user dotfiles
+  command: env RCRC=/home/{{ user.name }}/{{ dotfiles.destination }}/rcrc rcup
+  when: dotfiles is defined
