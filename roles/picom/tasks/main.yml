@@ -1,0 +1,32 @@
+---
+- name: Uninstall picom fork
+  pacman:
+    name: picom-ibhagwan-git
+    state: absent
+    force: yes
+  become: yes
+  when: picom_rounded_corners == False
+
+- name: Uninstall picom
+  pacman:
+    name: picom
+    state: absent
+    force: yes
+  become: yes
+  when: picom_rounded_corners == True
+
+- name: Install picom
+  pacman:
+    name: picom
+    state: present
+  become: yes
+  when: picom_rounded_corners == False
+
+- name: Install picom fork
+  kewlfft.aur.aur:
+    use: yay
+    name: picom-ibhagwan-git
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
+  when: picom_rounded_corners == True
