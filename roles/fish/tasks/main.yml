@@ -1,0 +1,8 @@
+---
+- name: Install fish
+  pacman:
+    name:
+      - fish
+      - fisher
+    state: present
+  become: yes
