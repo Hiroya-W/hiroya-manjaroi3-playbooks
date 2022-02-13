@@ -1,0 +1,5 @@
+---
+grub2_themes_repo:
+  work_dir: "/tmp"
+  url: git@github.com:vinceliuice/grub2-themes.git
+  version: "2021-12-05"

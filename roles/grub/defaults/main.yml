@@ -1,0 +1,6 @@
+grub2_themes:
+  theme: "stylish"
+  icon: "color"
+  screen_resolution: "1080p"
+
+install_grub2_themes: False

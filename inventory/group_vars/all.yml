@@ -5,3 +5,5 @@ nvidia_gpu_ready: True
 dotfiles:
   url: git@github.com:Hiroya-W/dotfiles.git
   destination: dotfiles
+
+install_grub2_themes: True

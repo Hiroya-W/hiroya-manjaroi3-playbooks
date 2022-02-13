@@ -1,0 +1,26 @@
+---
+- name: "Create working directory"
+  file:
+    path: "{{ grub2_themes_repo.work_dir }}"
+    state: directory
+  become: yes
+  when: install_grub2_themes == True
+
+- name: Clone theme repository
+  git:
+    repo: "{{ grub2_themes_repo.url }}"
+    dest: "{{ grub2_themes_repo.work_dir }}/grub2-themes"
+    version: "{{ grub2_themes_repo.version }}"
+    accept_hostkey: yes
+    update: no
+  when: install_grub2_themes == True
+
+- name: Install grub2-themes
+  command: ./install.sh -b -t {{ grub2_themes.theme }} -i {{ grub2_themes.icon }} -s {{ grub2_themes.screen_resolution }}
+  args:
+    chdir: "{{ eww.work_dir }}/grub2-themes"
+  ignore_errors: yes
+  register: result
+  failed_when: result["stdout"] in "All done!"
+  become: yes
+  when: install_grub2_themes == True

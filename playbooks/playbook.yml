@@ -13,3 +13,4 @@
     - { role: eww, tags: eww }
     - { role: rofi, tags: rofi }
     - { role: polybar, tags: polybar }
+    - { role: grub, tags: grub }
