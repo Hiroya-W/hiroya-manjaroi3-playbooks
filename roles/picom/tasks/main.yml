@@ -23,8 +23,8 @@
   when: picom_rounded_corners == False
 
 - name: Install picom fork
-  kewlfft.aur.aur:
-    use: yay
+  pacman:
+    executable: yay
     name: picom-ibhagwan-git
     state: present
   become: yes

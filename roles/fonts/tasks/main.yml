@@ -1,7 +1,7 @@
 ---
 - name: Install AUR fonts
-  kewlfft.aur.aur:
-    use: yay
+  pacman:
+    executable: yay
     name: ttf-hackgen
     state: present
   become: yes

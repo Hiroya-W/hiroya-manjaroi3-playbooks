@@ -1,7 +1,7 @@
 ---
 - name: Install polybar
-  kewlfft.aur.aur:
-    use: yay
+  pacman:
+    executable: yay
     name: polybar
     state: present
   become: yes

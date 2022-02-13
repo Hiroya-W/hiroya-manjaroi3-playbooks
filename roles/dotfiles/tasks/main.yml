@@ -1,7 +1,7 @@
 ---
 - name: Install rcm
-  kewlfft.aur.aur:
-    use: yay
+  pacman:
+    executable: yay
     name: rcm
     state: present
   become: yes

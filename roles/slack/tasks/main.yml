@@ -1,7 +1,7 @@
 ---
 - name: Install slack
-  kewlfft.aur.aur:
-    use: yay
+  pacman:
+    executable: yay
     name: slack-desktop
     state: present
   become: yes

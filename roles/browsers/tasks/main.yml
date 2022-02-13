@@ -6,8 +6,8 @@
   become: yes
 
 - name: Install google-chrome
-  kewlfft.aur.aur:
-    use: yay
+  pacman:
+    executable: yay
     name: google-chrome
     state: present
   become: yes
