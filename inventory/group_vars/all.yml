@@ -1,4 +1,6 @@
 ---
+ntp_system_clock_sync: True
+
 aur_builder_user: aur_builder
 nvidia_gpu_ready: True
 
