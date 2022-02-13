@@ -17,3 +17,4 @@
     - { role: alacritty, tags: alacritty }
     - { role: fish, tags: fish }
     - { role: starship, tags: starship }
+    - { role: gtk_themes, tags: gtk_themes }

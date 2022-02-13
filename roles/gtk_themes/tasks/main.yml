@@ -1,0 +1,15 @@
+---
+- name: Install lxappearance
+  pacman:
+    name: lxappearance
+    state: present
+  become: yes
+
+- name: Install gtk themes
+  pacman:
+    name:
+      - adapta-gtk-theme
+      - papirus-icon-theme
+      - papirus-maia-icon-theme
+    state: present
+  become: yes
