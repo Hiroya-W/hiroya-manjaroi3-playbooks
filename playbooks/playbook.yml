@@ -11,3 +11,4 @@
     - { role: dotfiles, tags: dotfiles }
     - { role: fcitx, tags: fcitx }
     - { role: eww, tags: eww }
+    - { role: rofi, tags: rofi }

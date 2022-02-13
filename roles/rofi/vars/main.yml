@@ -1,0 +1,4 @@
+---
+rofi_themes_dir: "/home/{{ ansible_env.USER }}/.config/rofi_themes"
+rofi_theme:
+  url: git@github.com:Hiroya-W/rofi.git
