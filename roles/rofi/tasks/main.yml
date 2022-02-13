@@ -4,6 +4,3 @@
     name: rofi
     state: present
   become: yes
-#
-# dotfilesで管理させる
-# - import_tasks: rofi_theme.yml
