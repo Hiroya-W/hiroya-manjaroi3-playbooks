@@ -14,3 +14,4 @@
     - { role: rofi, tags: rofi }
     - { role: polybar, tags: polybar }
     - { role: grub, tags: grub }
+    - { role: alacritty, tags: alacritty }
