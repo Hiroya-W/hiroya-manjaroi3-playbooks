@@ -16,3 +16,4 @@
     - { role: grub, tags: grub }
     - { role: alacritty, tags: alacritty }
     - { role: fish, tags: fish }
+    - { role: starship, tags: starship }

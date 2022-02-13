@@ -1,0 +1,6 @@
+---
+- name: Install starship
+  pacman:
+    name: starship
+    state: present
+  become: yes
