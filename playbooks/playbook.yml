@@ -20,3 +20,4 @@
     - { role: gtk_themes, tags: gtk_themes }
     - { role: picom, tags: picom }
     - { role: docker, tags: docker }
+    - { role: gitify, tags: gitify }
