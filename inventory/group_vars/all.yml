@@ -11,3 +11,6 @@ dotfiles:
 install_grub2_themes: True
 
 picom_rounded_corners: True
+
+docker_users:
+  - "{{ ansible_env.USER }}"
