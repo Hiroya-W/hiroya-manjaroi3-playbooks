@@ -1,0 +1,18 @@
+---
+- hosts: local
+  roles:
+    - { role: grub, tags: grub }
+    - { role: fonts, tags: fonts }
+    - { role: sound, tags: sound }
+    - { role: bluetooth, tags: bluetooth }
+    - { role: docker, tags: docker }
+    - { role: gtk_themes, tags: gtk_themes }
+    - { role: picom, tags: picom }
+    - { role: eww, tags: eww }
+    - { role: polybar, tags: polybar }
+    - { role: rofi, tags: rofi }
+    - { role: fcitx, tags: fcitx }
+    - { role: alacritty, tags: alacritty }
+    - { role: fish, tags: fish }
+    - { role: starship, tags: starship }
+    - { role: dotfiles, tags: dotfiles }

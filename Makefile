@@ -23,6 +23,10 @@ check:
 init:
 	$(PLAYBOOK_CMD) --ask-become-pass $(PLAYBOOK_DIR)/init.yml $(args)
 
-.PHONY: playbook
-playbook:
-	$(PLAYBOOK_CMD) --ask-become-pass $(PLAYBOOK_DIR)/playbook.yml $(args)
+.PHONY: system
+system:
+	$(PLAYBOOK_CMD) --ask-become-pass $(PLAYBOOK_DIR)/system.yml $(args)
+
+.PHONY: apps
+apps:
+	$(PLAYBOOK_CMD) --ask-become-pass $(PLAYBOOK_DIR)/applications.yml $(args)
