@@ -9,6 +9,12 @@
   when: ntp_system_clock_sync == False
   become: yes
 
+- name: Copy pacman configuration file
+  copy:
+    src: pacman.conf
+    dest: /etc/pacman.conf
+  become: yes
+
 - name: Change pacman mirror
   command: pacman-mirrors --geoip
   become: yes
