@@ -1,6 +1,7 @@
 ---
 - hosts: local
   roles:
+    - { role: pacman, tags: pacman }
     - { role: grub, tags: grub }
     - { role: fonts, tags: fonts }
     - { role: sound, tags: sound }
