@@ -1,27 +1,4 @@
 ---
-- name: Enable system clock synchronized
-  command: timedatectl set-ntp true
-  when: ntp_system_clock_sync == True
-  become: yes
-
-- name: Disable system clock synchronized
-  command: timedatectl set-ntp false
-  when: ntp_system_clock_sync == False
-  become: yes
-
-- name: Copy pacman configuration file
-  copy:
-    src: pacman.conf
-    dest: /etc/pacman.conf
-  become: yes
-
-- name: Change pacman mirror
-  command: pacman-mirrors --geoip
-  become: yes
-
-- name: Refresh pacman mirrors
-  pacman:
-    update_cache: yes
-  become: yes
-
+- import_tasks: system-clock.yml
+- import_tasks: pacman.yml
 - import_tasks: user.yml

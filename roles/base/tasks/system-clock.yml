@@ -1,0 +1,10 @@
+---
+- name: Enable system clock synchronized
+  command: timedatectl set-ntp true
+  when: ntp_system_clock_sync == True
+  become: yes
+
+- name: Disable system clock synchronized
+  command: timedatectl set-ntp false
+  when: ntp_system_clock_sync == False
+  become: yes
