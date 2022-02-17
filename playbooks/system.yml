@@ -5,6 +5,7 @@
     - { role: grub, tags: grub }
     - { role: fonts, tags: fonts }
     - { role: sound, tags: sound }
+    - { role: xrandr, tags: xrandr }
     - { role: bluetooth, tags: bluetooth }
     - { role: docker, tags: docker }
     - { role: gtk_themes, tags: gtk_themes }

@@ -1,0 +1,6 @@
+---
+- name: Install autorandr
+  pacman:
+    name: autorandr
+    state: present
+  become: yes
