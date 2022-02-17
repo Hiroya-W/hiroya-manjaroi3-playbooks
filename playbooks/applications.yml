@@ -6,3 +6,4 @@
     - { role: discord, tags: discord }
     - { role: vscode, tags: vscode }
     - { role: gitify, tags: gitify }
+    - { role: spotify, tags: spotify }
