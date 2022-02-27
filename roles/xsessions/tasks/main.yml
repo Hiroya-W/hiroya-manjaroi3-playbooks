@@ -1,0 +1,8 @@
+---
+- name: Install xinit-xsession
+  pacman:
+    executable: yay
+    name: xinit-xsession
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
