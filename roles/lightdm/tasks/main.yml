@@ -1,0 +1,14 @@
+---
+- name: Install lightdm
+  pacman:
+    name: lightdm
+    state: present
+  become: yes
+
+- name: Install lightdm themes
+  pacman:
+    name:
+      - lightdm-webkit2-greeter
+      - lightdm-webkit-theme-litarvan
+    state: present
+  become: yes

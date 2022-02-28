@@ -3,6 +3,7 @@
   roles:
     - { role: pacman, tags: pacman }
     - { role: grub, tags: grub }
+    - { role: lightdm, tags: lightdm }
     - { role: fonts, tags: fonts }
     - { role: sound, tags: sound }
     - { role: xrandr, tags: xrandr }
