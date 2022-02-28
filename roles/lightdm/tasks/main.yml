@@ -12,3 +12,15 @@
       - lightdm-webkit-theme-litarvan
     state: present
   become: yes
+
+- name: Copy lightdm.conf
+  copy:
+    src: lightdm.conf
+    dest: /etc/lightdm/lightdm.conf
+  become: yes
+
+- name: Copy lightdm-webkit2-greeter.conf
+  copy:
+    src: lightdm-webkit2-greeter.conf
+    dest: /etc/lightdm/lightdm-webkit2-greeter.conf
+  become: yes
