@@ -6,3 +6,37 @@
     state: present
   become: yes
   become_user: "{{ aur_builder_user }}"
+
+- name: Copy xremap service file
+  template:
+    src: template/xremap.service.j2
+    dest: /etc/systemd/system/xremap.service
+  become: yes
+  register: xremap_service
+
+- name: Run daemon-reload
+  systemd:
+    daemon_reload: yes
+  become: yes
+  when: xremap_service.changed
+
+- name: Check for the existence of the xremap config
+  stat:
+    path: "{{ xremap_config_path }}"
+  register: xremap_config
+
+- name: Enable xremap service
+  service:
+    name: xremap
+    state: started
+    enabled: yes
+  become: yes
+  when: xremap_config.stat.exists == true and xremap_config.stat.isreg == true
+
+- name: Disable xremap service
+  service:
+    name: xremap
+    state: stopped
+    enabled: no
+  become: yes
+  when: xremap_config.stat.exists == false or xremap_config.stat.isdir == true
