@@ -1,0 +1,1 @@
+xremap_config_path: "/home/{{ ansible_env.USER }}/dotfiles/xremap/config.yml"
