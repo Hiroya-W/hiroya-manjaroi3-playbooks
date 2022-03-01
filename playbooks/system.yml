@@ -7,7 +7,6 @@
     - { role: fonts, tags: fonts }
     - { role: sound, tags: sound }
     - { role: xrandr, tags: xrandr }
-    - { role: xremap, tags: xremap }
     - { role: bluetooth, tags: bluetooth }
     - { role: docker, tags: docker }
     - { role: gtk_themes, tags: gtk_themes }
@@ -20,3 +19,4 @@
     - { role: fish, tags: fish }
     - { role: starship, tags: starship }
     - { role: dotfiles, tags: dotfiles }
+    - { role: xremap, tags: xremap }
