@@ -21,3 +21,6 @@
     state: present
   become: yes
   become_user: "{{ aur_builder_user }}"
+
+- name: Update betterlockscreen cache
+  command: "betterlockscreen -u {{ locker_background_path }} --fx dim,blur"

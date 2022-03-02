@@ -16,3 +16,5 @@ picom_rounded_corners: True
 
 docker_users:
   - "{{ ansible_env.USER }}"
+
+locker_background_path: "/usr/share/backgrounds/gnome/LightBulb.jpg"
