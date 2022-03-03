@@ -1,1 +1,2 @@
 locker_background_path: "/usr/share/backgrounds"
+lock_after_suspend: True

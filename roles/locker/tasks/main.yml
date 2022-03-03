@@ -24,3 +24,17 @@
 
 - name: Update betterlockscreen cache
   command: "betterlockscreen -u {{ locker_background_path }} --fx dim,blur"
+
+- name: Enable Lockscreen after sleep/suspend
+  systemd:
+    name: betterlockscreen@{{ ansible_env.USER }}
+    enabled: yes
+  become: yes
+  when: lock_after_suspend | bool
+
+- name: Disable Lockscreen after sleep/suspend
+  systemd:
+    name: betterlockscreen@{{ ansible_env.USER }}
+    enabled: no
+  become: yes
+  when: not lock_after_suspend | bool
