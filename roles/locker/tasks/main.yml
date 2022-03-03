@@ -1,2 +1,3 @@
 ---
 - import_tasks: betterlockscreen.yml
+- import_tasks: xidlehook.yml

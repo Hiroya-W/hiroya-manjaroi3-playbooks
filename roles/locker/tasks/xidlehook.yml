@@ -1,0 +1,8 @@
+---
+- name: Install xidlehook
+  pacman:
+    executable: yay
+    name: xidlehook
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
