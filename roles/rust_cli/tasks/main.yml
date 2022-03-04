@@ -1,0 +1,25 @@
+---
+- name: Install CLI built in Rust
+  pacman:
+    name:
+      - bat
+      - exa
+      - fd
+      - procs
+      - ripgrep
+    state: present
+  become: yes
+
+- name: Install CLI built in Rust from AUR
+  pacman:
+    executable: yay
+    name: "{{ item }}"
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
+  loop:
+    - navi
+
+- name: Install git-delta from Cargo
+  community.general.cargo:
+    name: git-delta
