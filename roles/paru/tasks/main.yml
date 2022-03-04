@@ -1,0 +1,16 @@
+---
+- name: Install yay
+  pacman:
+    name: yay
+    state: present
+  become: yes
+
+- name: Install paru, paruz
+  pacman:
+    executable: yay
+    name:
+      - paru
+      - paruz
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"

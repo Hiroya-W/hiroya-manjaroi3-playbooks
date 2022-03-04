@@ -2,6 +2,7 @@
 - hosts: local
   roles:
     - { role: pacman, tags: pacman }
+    - { role: paru, tags: paru }
     - { role: grub, tags: grub }
     - { role: lightdm, tags: lightdm }
     - { role: locker, tags: locker }
