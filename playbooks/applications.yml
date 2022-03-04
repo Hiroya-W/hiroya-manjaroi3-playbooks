@@ -8,3 +8,4 @@
     - { role: neovim, tags: neovim }
     - { role: gitify, tags: gitify }
     - { role: spotify, tags: spotify }
+    - { role: peco, tags: peco }
