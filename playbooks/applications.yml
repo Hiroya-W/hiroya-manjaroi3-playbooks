@@ -9,3 +9,4 @@
     - { role: gitify, tags: gitify }
     - { role: spotify, tags: spotify }
     - { role: peco, tags: peco }
+    - { role: ghq, tags: ghq }
