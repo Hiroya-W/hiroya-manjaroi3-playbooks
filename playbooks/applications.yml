@@ -8,5 +8,6 @@
     - { role: neovim, tags: neovim }
     - { role: gitify, tags: gitify }
     - { role: spotify, tags: spotify }
+    - { role: lazygit, tags: lazygit }
     - { role: peco, tags: peco }
     - { role: ghq, tags: ghq }
