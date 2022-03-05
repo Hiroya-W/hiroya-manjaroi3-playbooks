@@ -31,7 +31,7 @@
     state: started
     enabled: yes
   become: yes
-  when: xremap_config.stat.exists == true and xremap_config.stat.isreg == true
+  when: xremap_enabled | bool and xremap_config.stat.exists == true and xremap_config.stat.isreg == true
 
 - name: Disable xremap service
   service:
@@ -39,4 +39,4 @@
     state: stopped
     enabled: no
   become: yes
-  when: xremap_config.stat.exists == false or xremap_config.stat.isdir == true
+  when: not xremap_enabled | bool or xremap_config.stat.exists == false or xremap_config.stat.isdir == true
