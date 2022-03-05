@@ -25,11 +25,17 @@
     path: "{{ xremap_config_path }}"
   register: xremap_config
 
-- name: Enable xremap service
-  service:
-    name: xremap
-    state: started
-    enabled: yes
+- block:
+    - name: Enable xremap service
+      service:
+        name: xremap
+        state: started
+        enabled: yes
+    - name: Restart xremap service
+      service:
+        name: xremap
+        state: restarted
+      when: xremap_service.changed
   become: yes
   when: xremap_enabled | bool and xremap_config.stat.exists == true and xremap_config.stat.isreg == true
 
