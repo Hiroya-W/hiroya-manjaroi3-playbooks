@@ -9,6 +9,9 @@ dotfiles:
   destination: dotfiles
 
 xremap_config_path: "/home/{{ ansible_env.USER }}/{{ dotfiles.destination }}/xremap-my-eucalyn/config.yml"
+xremap_ignore_devices:
+  - "PFU Limited HHKB-Hybrid Keyboard"
+  - "PFU Limited HHKB-Hybrid_3 Keyboard"
 
 install_grub2_themes: True
 

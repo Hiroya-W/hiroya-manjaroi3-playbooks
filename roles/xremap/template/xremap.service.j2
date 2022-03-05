@@ -2,7 +2,11 @@
 Description=Xremap service
 
 [Service]
+{% if xremap_ignore_devices is defined %}
+ExecStart=/usr/bin/xremap --watch {{ xremap_config_path }} {{ ["--ignore"] | product(xremap_ignore_devices | map("quote")) | map("join"," ") | join(" ") }}
+{% else %}
 ExecStart=/usr/bin/xremap --watch {{ xremap_config_path }}
+{% endif %}
 Restart=always
 
 [Install]
