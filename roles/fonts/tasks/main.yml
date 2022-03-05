@@ -1,4 +1,11 @@
 ---
+- name: Install fonts
+  pacman:
+    name:
+      - noto-fonts-emoji
+    state: present
+  become: yes
+
 - name: Install AUR fonts
   pacman:
     executable: yay
