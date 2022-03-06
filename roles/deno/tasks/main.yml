@@ -1,0 +1,6 @@
+---
+- name: Install deno
+  pacman:
+    name: deno
+    state: present
+  become: yes
