@@ -1,0 +1,4 @@
+picom_s0nny7_git:
+  url: "git@github.com:Hiroya-W/picom-s0nny7-git.git"
+  version: "master"
+  work_dir: "/tmp"

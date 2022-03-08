@@ -2,7 +2,7 @@
 - block:
     - name: (force) Uninstall development version picom
       pacman:
-        name: picom-git
+        name: picom-s0nny7-git
         state: absent
         force: yes
       become: yes
@@ -22,11 +22,34 @@
         force: yes
       become: yes
 
-    - name: Install development version picom
+    - name: "Create work directory to install picom-s0nny7-git"
+      file:
+        path: "{{ picom_s0nny7_git.work_dir }}"
+        state: directory
+      become: yes
+
+    - name: Clone PKGBUILD repository
+      git:
+        repo: "{{ picom_s0nny7_git.url }}"
+        dest: "{{ picom_s0nny7_git.work_dir }}/picom-s0nny7-git"
+        version: "{{ picom_s0nny7_git.version }}"
+        accept_hostkey: yes
+        update: yes
+
+    - name: Check for the existence of the build artifact
+      stat:
+        path: "{{ picom_s0nny7_git.work_dir }}/picom-s0nny7-git/picom-s0nny7-git/picom-s0nny7-git-1578_Next.297.gd74c099_2021.06.09-1-x86_64.pkg.tar.zst"
+      register: picom_build_artifact
+
+    - name: Build picom-s0nny7-git
+      command: makepkg --syncdeps --clean --noconfirm --skippgpcheck -f
+      args:
+        chdir: "{{ picom_s0nny7_git.work_dir }}/picom-s0nny7-git/"
+      when: picom_build_artifact.stat.exists == true and picom_build_artifact.stat.isreg == true
+
+    - name: Install picom-s0nny7-git
       pacman:
-        executable: yay
-        name: picom-git
+        name: "{{ picom_s0nny7_git.work_dir }}/picom-s0nny7-git/picom-s0nny7-git-1578_Next.297.gd74c099_2021.06.09-1-x86_64.pkg.tar.zst"
         state: present
       become: yes
-      become_user: "{{ aur_builder_user }}"
   when: picom_development_version == True
