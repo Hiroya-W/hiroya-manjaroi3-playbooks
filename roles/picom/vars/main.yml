@@ -1,4 +1,12 @@
-picom_s0nny7_git:
+picom:
+  pkg_name: "picom-s0nny7-git"
+  pkg_version: "1578_Next.297.gd74c099_2021.06.09-1"
+
+picom_pkgbuild:
   url: "git@github.com:Hiroya-W/picom-s0nny7-git.git"
   version: "master"
   work_dir: "/tmp"
+
+picom_build_dir: "{{ picom_pkgbuild.work_dir }}/{{ picom.pkg_name }}"
+picom_build_artifact_name: "{{ picom.pkg_name }}-{{ picom.pkg_version }}-{{ ansible_architecture }}.pkg.tar.zst"
+picom_build_artifact_path: "{{ picom_build_dir }}/{{ picom_build_artifact_name }}"

@@ -22,34 +22,34 @@
         force: yes
       become: yes
 
-    - name: "Create work directory to install picom-s0nny7-git"
+    - name: "Create work directory to install {{ picom.pkg_name }}"
       file:
-        path: "{{ picom_s0nny7_git.work_dir }}"
+        path: "{{ picom_pkgbuild.work_dir }}"
         state: directory
       become: yes
 
     - name: Clone PKGBUILD repository
       git:
-        repo: "{{ picom_s0nny7_git.url }}"
-        dest: "{{ picom_s0nny7_git.work_dir }}/picom-s0nny7-git"
-        version: "{{ picom_s0nny7_git.version }}"
+        repo: "{{ picom_pkgbuild.url }}"
+        dest: "{{ picom_pkgbuild.work_dir }}/{{ picom.pkg_name }}"
+        version: "{{ picom_pkgbuild.version }}"
         accept_hostkey: yes
         update: yes
 
     - name: Check for the existence of the build artifact
       stat:
-        path: "{{ picom_s0nny7_git.work_dir }}/picom-s0nny7-git/picom-s0nny7-git/picom-s0nny7-git-1578_Next.297.gd74c099_2021.06.09-1-x86_64.pkg.tar.zst"
+        path: "{{ picom_build_artifact_path }}"
       register: picom_build_artifact
 
     - name: Build picom-s0nny7-git
-      command: makepkg --syncdeps --clean --noconfirm --skippgpcheck -f
+      command: makepkg --syncdeps --clean --noconfirm --skippgpcheck
       args:
-        chdir: "{{ picom_s0nny7_git.work_dir }}/picom-s0nny7-git/"
-      when: picom_build_artifact.stat.exists == true and picom_build_artifact.stat.isreg == true
+        chdir: "{{ picom_pkgbuild.work_dir }}/{{ picom.pkg_name }}"
+      when: not picom_build_artifact.stat.exists
 
-    - name: Install picom-s0nny7-git
+    - name: Install {{ picom.pkg_name }}
       pacman:
-        name: "{{ picom_s0nny7_git.work_dir }}/picom-s0nny7-git/picom-s0nny7-git-1578_Next.297.gd74c099_2021.06.09-1-x86_64.pkg.tar.zst"
+        name: "{{ picom_build_artifact_path }}"
         state: present
       become: yes
   when: picom_development_version == True
