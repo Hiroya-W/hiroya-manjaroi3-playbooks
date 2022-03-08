@@ -1,8 +1,8 @@
 ---
 - block:
-    - name: Uninstall picom fork
+    - name: (force) Uninstall development version picom
       pacman:
-        name: picom-ibhagwan-git
+        name: picom-git
         state: absent
         force: yes
       become: yes
@@ -12,21 +12,21 @@
         name: picom
         state: present
       become: yes
-  when: picom_rounded_corners == False
+  when: picom_development_version == False
 
 - block:
-    - name: Uninstall picom
+    - name: (force) Uninstall picom
       pacman:
         name: picom
         state: absent
         force: yes
       become: yes
 
-    - name: Install picom fork
+    - name: Install development version picom
       pacman:
         executable: yay
-        name: picom-ibhagwan-git
+        name: picom-git
         state: present
       become: yes
       become_user: "{{ aur_builder_user }}"
-  when: picom_rounded_corners == True
+  when: picom_development_version == True
