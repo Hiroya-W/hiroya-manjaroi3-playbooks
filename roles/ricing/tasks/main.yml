@@ -1,0 +1,20 @@
+---
+- name: Install pacman packages
+  pacman:
+    name:
+      - neofetch
+      - cmatrix
+    state: present
+  become: yes
+
+- name: Install AUR packages
+  pacman:
+    executable: yay
+    name: "{{ item }}"
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
+  loop:
+    - gotop
+    - cava
+    - peaclock

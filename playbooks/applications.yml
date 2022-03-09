@@ -12,3 +12,4 @@
     - { role: peco, tags: peco }
     - { role: ghq, tags: ghq }
     - { role: rust_cli, tags: rust_cli }
+    - { role: ricing, tags: ricing }
