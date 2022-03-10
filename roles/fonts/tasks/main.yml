@@ -2,7 +2,12 @@
 - name: Install fonts
   pacman:
     name:
+      - noto-fonts
+      - noto-fonts-cjk
       - noto-fonts-emoji
+      # adapta-nokto theme for polybar
+      - ttf-iosevka-nerd
+      - ttf-fantasque-sans-mono
     state: present
   become: yes
 
