@@ -21,6 +21,6 @@
     chdir: "{{ eww.work_dir }}/grub2-themes"
   ignore_errors: yes
   register: result
-  failed_when: result["stdout"] in "All done!"
+  failed_when: "'All done!' not in result.stdout"
   become: yes
   when: install_grub2_themes == True
