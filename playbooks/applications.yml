@@ -14,3 +14,4 @@
     - { role: rust_cli, tags: rust_cli }
     - { role: ricing, tags: ricing }
     - { role: inkscape, tags: inkscape }
+    - { role: libreoffice, tags: libreoffice }
