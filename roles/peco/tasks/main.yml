@@ -1,6 +1,0 @@
----
-- name: Install peco
-  pacman:
-    name: peco
-    state: present
-  become: yes

@@ -1,0 +1,30 @@
+---
+- name: Install community applications
+  pacman:
+    name:
+      # GUI
+      - discord
+      - inkscape
+      - libreoffice-still
+      - evince
+      # CUI
+      - lazygit
+      - peco
+    state: present
+  become: yes
+
+- name: Install AUR applications
+  pacman:
+    executable: yay
+    name: "{{ item }}"
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
+  loop:
+    # GUI
+    - slack-desktop
+    - visual-studio-code-bin
+    - gitify-bin
+    - spotify
+    # CUI
+    - ghq

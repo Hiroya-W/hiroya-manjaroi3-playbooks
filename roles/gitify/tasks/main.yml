@@ -1,8 +1,0 @@
----
-- name: Install gitify
-  pacman:
-    name: gitify-bin
-    state: present
-    executable: yay
-  become: yes
-  become_user: "{{ aur_builder_user }}"

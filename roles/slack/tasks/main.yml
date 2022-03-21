@@ -1,8 +1,0 @@
----
-- name: Install slack
-  pacman:
-    executable: yay
-    name: slack-desktop
-    state: present
-  become: yes
-  become_user: "{{ aur_builder_user }}"

@@ -1,6 +1,0 @@
----
-- name: Install evince
-  pacman:
-    name: evince
-    state: present
-  become: yes

@@ -1,6 +1,0 @@
----
-- name: Install lazygit
-  pacman:
-    name: lazygit
-    state: present
-  become: yes

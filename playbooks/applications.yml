@@ -1,18 +1,8 @@
 ---
 - hosts: local
   roles:
+    - { role: applications, tags: applications }
     - { role: browsers, tags: browsers }
-    - { role: slack, tags: slack }
-    - { role: discord, tags: discord }
-    - { role: vscode, tags: vscode }
     - { role: neovim, tags: neovim }
-    - { role: gitify, tags: gitify }
-    - { role: spotify, tags: spotify }
-    - { role: lazygit, tags: lazygit }
-    - { role: peco, tags: peco }
-    - { role: ghq, tags: ghq }
     - { role: rust_cli, tags: rust_cli }
     - { role: ricing, tags: ricing }
-    - { role: inkscape, tags: inkscape }
-    - { role: libreoffice, tags: libreoffice }
-    - { role: evince, tags: evince }
