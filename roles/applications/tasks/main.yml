@@ -26,5 +26,6 @@
     - visual-studio-code-bin
     - gitify-bin
     - spotify
+    - wezterm-git
     # CUI
     - ghq
