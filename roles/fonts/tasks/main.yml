@@ -1,4 +1,13 @@
 ---
+- name: Install fontpreview
+  pacman:
+    executable: yay
+    name: fontpreview
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
+  when: install_fontpreview | bool
+
 - name: Install fonts
   pacman:
     name:
