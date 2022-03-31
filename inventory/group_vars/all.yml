@@ -12,7 +12,7 @@ xremap_enabled: True
 xremap_config_path: "/home/{{ ansible_env.USER }}/{{ dotfiles.destination }}/xremap-my-eucalyn/config.yml"
 xremap_ignore_devices:
   - "PFU Limited HHKB-Hybrid"
-  - "PFU Limited HHKB-Hybrid_3"
+  - "HHKB-Hybrid_3"
 
 install_grub2_themes: True
 
