@@ -11,6 +11,7 @@
       # CUI
       - lazygit
       - peco
+      - ueberzug
     state: present
   become: yes
 
