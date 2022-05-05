@@ -12,6 +12,7 @@
       - lazygit
       - peco
       - ueberzug
+      - github-cli
     state: present
   become: yes
 
