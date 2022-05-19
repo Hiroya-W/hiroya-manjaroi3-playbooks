@@ -11,6 +11,7 @@
       # CUI
       - lazygit
       - peco
+      - tmux
       - ueberzug
       - github-cli
     state: present
