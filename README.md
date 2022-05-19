@@ -31,14 +31,20 @@ And update the mirror.
 make init
 ```
 
-Next, start the provisioning.
+Next, start the provisioning the system.
 
 ```bash
-make playbook
+make system
+```
+
+(Optional) Install applications.
+
+```bash
+make apps
 ```
 
 You can use the tags defined in the playbook to execute only specific roles.
 
 ```bash
-make playbook args="--tags HERE_TAGS"
+make system args="--tags HERE_TAGS"
 ```
