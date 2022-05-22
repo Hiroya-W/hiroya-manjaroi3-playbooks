@@ -1,6 +1,32 @@
 ---
-- name: Install neovim
-  pacman:
-    name: neovim
-    state: present
-  become: yes
+- block:
+    - name: (force) Uninstall neovim nightly
+      pacman:
+        name: neovim-nightly-bin
+        state: absent
+        force: yes
+      become: yes
+
+    - name: Install neovim
+      pacman:
+        name: neovim
+        state: present
+      become: yes
+  when: neovim_install_nightly == False
+
+- block:
+    - name: (force) Uninstall neovim
+      pacman:
+        name: neovim
+        state: absent
+        force: yes
+      become: yes
+
+    - name: Install neovim nightly
+      pacman:
+        executable: yay
+        name: neovim-nightly-bin
+        state: present
+      become: yes
+      become_user: "{{ aur_builder_user }}"
+  when: neovim_install_nightly == True
