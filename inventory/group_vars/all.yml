@@ -25,5 +25,3 @@ docker_users:
   - "{{ ansible_env.USER }}"
 
 locker_background_path: "/usr/share/backgrounds/gnome/LightBulb.jpg"
-
-neovim_install_nightly: True
