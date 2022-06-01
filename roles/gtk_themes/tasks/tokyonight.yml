@@ -1,0 +1,27 @@
+---
+- name: Create themes dir
+  file:
+    path: "/home/{{ ansible_env.USER }}/.local/share/themes"
+    state: directory
+
+- name: Create icons dir
+  file:
+    path: "/home/{{ ansible_env.USER }}/.local/share/icons"
+    state: directory
+
+- name: Download Tokyo Night gtk theme
+  git:
+    repo: "https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme.git"
+    dest: /tmp/Tokyo-Night-GTK-Theme
+    update: no
+
+- name: Install Tokyo Night gtk theme
+  synchronize:
+    src: /tmp/Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-B
+    dest: "/home/{{ ansible_env.USER }}/.local/share/themes"
+
+- name: Install Tokyo Night icon theme
+  synchronize:
+    src: /tmp/Tokyo-Night-GTK-Theme/icons/tokyonight_dark
+    dest: "/home/{{ ansible_env.USER }}/.local/share/icons"
+    copy_links: yes

@@ -5,7 +5,7 @@
     state: present
   become: yes
 
-- name: Install gtk themes
+- name: Install adapta gtk theme / papirus icon theme
   pacman:
     name:
       - adapta-gtk-theme
@@ -13,3 +13,5 @@
       - papirus-maia-icon-theme
     state: present
   become: yes
+
+- include_tasks: tokyonight.yml
