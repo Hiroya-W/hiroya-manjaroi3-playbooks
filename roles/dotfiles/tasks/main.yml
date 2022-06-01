@@ -12,7 +12,6 @@
   git:
     repo: "{{ dotfiles.url }}"
     dest: /home/{{ ansible_env.USER }}/{{ dotfiles.destination }}
-    accept_hostkey: yes
     update: no
   when: dotfiles is defined
 

@@ -5,7 +5,7 @@ aur_builder_user: aur_builder
 nvidia_gpu_ready: True
 
 dotfiles:
-  url: git@github.com:Hiroya-W/dotfiles.git
+  url: https://github.com/Hiroya-W/dotfiles.git
   destination: dotfiles
 
 xremap_enabled: True
