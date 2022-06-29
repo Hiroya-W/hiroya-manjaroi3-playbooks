@@ -2,7 +2,7 @@
 - block:
     - name: (force) Uninstall development version picom
       pacman:
-        name: picom-s0nny7-git
+        name: picom-jonaburg-git
         state: absent
         force: yes
       become: yes
@@ -22,34 +22,11 @@
         force: yes
       become: yes
 
-    - name: "Create work directory to install {{ picom.pkg_name }}"
-      file:
-        path: "{{ picom_pkgbuild.work_dir }}"
-        state: directory
-      become: yes
-
-    - name: Clone PKGBUILD repository
-      git:
-        repo: "{{ picom_pkgbuild.url }}"
-        dest: "{{ picom_pkgbuild.work_dir }}/{{ picom.pkg_name }}"
-        version: "{{ picom_pkgbuild.version }}"
-        accept_hostkey: yes
-        update: yes
-
-    - name: Check for the existence of the build artifact
-      stat:
-        path: "{{ picom_build_artifact_path }}"
-      register: picom_build_artifact
-
-    - name: Build picom-s0nny7-git
-      command: makepkg --syncdeps --clean --noconfirm --skippgpcheck
-      args:
-        chdir: "{{ picom_pkgbuild.work_dir }}/{{ picom.pkg_name }}"
-      when: not picom_build_artifact.stat.exists
-
-    - name: Install {{ picom.pkg_name }}
+    - name: Install development version picom
       pacman:
-        name: "{{ picom_build_artifact_path }}"
+        executable: yay
+        name: picom-jonaburg-git
         state: present
       become: yes
+      become_user: "{{ aur_builder_user }}"
   when: picom_development_version == True
