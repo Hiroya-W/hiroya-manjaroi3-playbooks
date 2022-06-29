@@ -8,6 +8,7 @@
       - gimp
       - libreoffice-still
       - evince
+      - simplescreenrecorder
       # CUI
       - lazygit
       - peco
