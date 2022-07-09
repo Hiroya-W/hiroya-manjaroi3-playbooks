@@ -9,6 +9,7 @@
       - libreoffice-still
       - evince
       - simplescreenrecorder
+      - vlc
       # CUI
       - lazygit
       - peco
