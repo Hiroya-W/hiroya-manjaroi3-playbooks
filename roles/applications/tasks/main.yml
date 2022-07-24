@@ -3,7 +3,6 @@
   pacman:
     name:
       # GUI
-      - discord
       - inkscape
       - gimp
       - libreoffice-still
@@ -31,6 +30,7 @@
   become_user: "{{ aur_builder_user }}"
   loop:
     # GUI
+    - discord-ptb
     - slack-desktop
     - visual-studio-code-bin
     - gitify-bin
