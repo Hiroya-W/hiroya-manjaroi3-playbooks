@@ -6,7 +6,7 @@ nvidia_gpu_ready: True
 
 dotfiles:
   url: https://github.com/Hiroya-W/dotfiles.git
-  destination: dotfiles
+  destination: /home/{{ ansible_env.USER }}/.local/share/chezmoi
 
 xremap_enabled: True
 xremap_config_path: "/home/{{ ansible_env.USER }}/{{ dotfiles.destination }}/config.yml"

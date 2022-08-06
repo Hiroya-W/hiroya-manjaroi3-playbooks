@@ -1,11 +1,9 @@
 ---
-- name: Install rcm
+- name: Install chezmoi
   pacman:
-    executable: yay
-    name: rcm
+    name: chezmoi
     state: present
   become: yes
-  become_user: "{{ aur_builder_user }}"
   when: dotfiles is defined
 
 - name: Clone user dotfiles
@@ -16,5 +14,5 @@
   when: dotfiles is defined
 
 - name: Install user dotfiles
-  command: env RCRC=/home/{{ ansible_env.USER }}/{{ dotfiles.destination }}/rcrc rcup
+  command: chezmoi apply --force
   when: dotfiles is defined
