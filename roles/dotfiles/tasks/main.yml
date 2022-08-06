@@ -20,4 +20,8 @@
     - name: Apply user dotfiles
       command: chezmoi apply --force
       when: result.stdout | length > 0
+
+    - name: Reload i3wm
+      command: i3msg reload
+      when: result.stdout | length > 0
   when: dotfiles is defined
