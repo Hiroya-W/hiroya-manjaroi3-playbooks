@@ -1,18 +1,23 @@
 ---
-- name: Install chezmoi
-  pacman:
-    name: chezmoi
-    state: present
-  become: yes
-  when: dotfiles is defined
+- block:
+    - name: Install chezmoi
+      pacman:
+        name: chezmoi
+        state: present
+      become: yes
 
-- name: Clone user dotfiles
-  git:
-    repo: "{{ dotfiles.url }}"
-    dest: /home/{{ ansible_env.USER }}/{{ dotfiles.destination }}
-    update: no
-  when: dotfiles is defined
+    - name: Clone user dotfiles
+      git:
+        repo: "{{ dotfiles.url }}"
+        dest: /home/{{ ansible_env.USER }}/{{ dotfiles.destination }}
+        update: no
 
-- name: Install user dotfiles
-  command: chezmoi apply --force
+    - name: Check changes in dotfiles
+      command: chezmoi diff
+      register: result
+      changed_when: False
+
+    - name: Apply user dotfiles
+      command: chezmoi apply --force
+      when: result.stdout | length > 0
   when: dotfiles is defined
