@@ -9,7 +9,7 @@ dotfiles:
   destination: dotfiles
 
 xremap_enabled: True
-xremap_config_path: "/home/{{ ansible_env.USER }}/{{ dotfiles.destination }}/xremap-my-eucalyn/config.yml"
+xremap_config_path: "/home/{{ ansible_env.USER }}/{{ dotfiles.destination }}/config.yml"
 xremap_ignore_devices:
   - "PFU Limited HHKB-Hybrid"
   - "HHKB-Hybrid_3"
