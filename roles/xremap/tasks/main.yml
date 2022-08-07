@@ -31,13 +31,14 @@
         name: xremap
         state: started
         enabled: yes
+
     - name: Restart xremap service
       service:
         name: xremap
         state: restarted
       when: xremap_service.changed
   become: yes
-  when: xremap_enabled | bool and xremap_config.stat.exists == true and xremap_config.stat.isreg == true
+  when: xremap_enabled | bool and xremap_config.stat.exists == true and (xremap_config.stat.isreg == true or xremap_config.stat.islnk == true)
 
 - name: Disable xremap service
   service:
