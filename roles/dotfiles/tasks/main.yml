@@ -1,27 +1,27 @@
 ---
-- block:
-    - name: Install chezmoi
-      pacman:
-        name: chezmoi
-        state: present
-      become: yes
+- name: Install chezmoi
+  pacman:
+    name: chezmoi
+    state: present
+  become: yes
 
-    - name: Clone user dotfiles
-      git:
-        repo: "{{ dotfiles.url }}"
-        dest: /home/{{ ansible_env.USER }}/{{ dotfiles.destination }}
-        update: no
+- name: Install dotfiles
+  command: chezmoi init Hiroya-W/dotfiles
+  changed_when: False
 
-    - name: Check changes in dotfiles
-      command: chezmoi diff
-      register: result
-      changed_when: False
+- name: Pull dotfiles
+  command: chezmoi git pull
+  changed_when: False
 
-    - name: Apply user dotfiles
-      command: chezmoi apply --force
-      when: result.stdout | length > 0
+- name: Check changes in dotfiles
+  command: chezmoi diff
+  register: result
+  changed_when: False
 
-    - name: Reload i3wm
-      command: i3msg reload
-      when: result.stdout | length > 0
-  when: dotfiles is defined
+- name: Apply user dotfiles
+  command: chezmoi apply --force
+  when: result.stdout | length > 0
+
+- name: Reload i3wm
+  command: i3msg reload
+  when: result.stdout | length > 0

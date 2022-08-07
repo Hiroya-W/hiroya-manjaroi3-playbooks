@@ -4,10 +4,6 @@ ntp_system_clock_sync: True
 aur_builder_user: aur_builder
 nvidia_gpu_ready: True
 
-dotfiles:
-  url: https://github.com/Hiroya-W/dotfiles.git
-  destination: /home/{{ ansible_env.USER }}/.local/share/chezmoi
-
 xremap_enabled: True
 xremap_config_path: "/home/{{ ansible_env.USER }}/.config/xremap/config.yml"
 xremap_ignore_devices:
