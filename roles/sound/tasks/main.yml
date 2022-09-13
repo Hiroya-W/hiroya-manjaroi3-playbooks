@@ -28,3 +28,11 @@
     name: pipewire-pulse
     state: started
     scope: user
+
+- name: Install NoiseTorch
+  pacman:
+    executable: yay
+    name: noisetorch
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
