@@ -1,7 +1,19 @@
 ---
-- name: Install pulseaudio
+- name: Uninstall pulseaudio
   pacman:
-    name: pulseaudio
+    name: 
+      - pulseaudio
+      - pulseaudio-bluetooth
+    state: absent
+    force: yes
+  become: yes
+
+- name: Install pipewire
+  pacman:
+    name:
+      - pipewire
+      - wireplumber
+      - pipewire-pulse
     state: present
   become: yes
 
@@ -11,12 +23,8 @@
     state: present
   become: yes
 
-- name: Check if pulseaudio process is running
-  shell: "ps ax | grep pulseaudio | grep -v grep"
-  register: result
-  ignore_errors: True
-  changed_when: False
-
-- name: Start pulseaudio
-  command: pulseaudio --start
-  when: result.rc == 1
+- name: Start PulseAudio client
+  systemd:
+    name: pipewire-pulse
+    state: started
+    scope: user
