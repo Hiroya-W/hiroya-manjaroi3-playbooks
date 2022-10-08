@@ -17,3 +17,17 @@
     src: lightdm.conf
     dest: /etc/lightdm/lightdm.conf
   become: yes
+
+- name: Enable lightdm service
+  systemd:
+    name: lightdm
+    enabled: yes
+  become: yes
+  when: enabled_desktop_manager == "lightdm"
+
+- name: Disable lightdm service
+  systemd:
+    name: lightdm
+    enabled: no
+  become: yes
+  when: enabled_desktop_manager != "lightdm"
