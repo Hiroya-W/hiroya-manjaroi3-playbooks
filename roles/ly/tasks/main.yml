@@ -1,0 +1,22 @@
+---
+- name: Install ly
+  pacman:
+    executable: yay
+    name: ly
+    state: present
+  become: yes
+  become_user: "{{ aur_builder_user }}"
+
+- name: Enable ly service
+  systemd:
+    name: ly
+    enabled: yes
+  become: yes
+  when: enabled_desktop_manager == "ly"
+
+- name: Disable ly service
+  systemd:
+    name: ly
+    enabled: no
+  become: yes
+  when: enabled_desktop_manager != "ly"

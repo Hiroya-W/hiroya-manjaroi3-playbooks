@@ -5,6 +5,7 @@
     - { role: paru, tags: paru }
     - { role: grub, tags: grub }
     - { role: lightdm, tags: lightdm }
+    - { role: ly, tags: ly }
     - { role: locker, tags: locker }
     - { role: fonts, tags: fonts }
     - { role: sound, tags: sound }
