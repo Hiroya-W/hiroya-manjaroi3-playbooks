@@ -22,4 +22,4 @@ docker_users:
 
 locker_background_path: "/usr/share/backgrounds/gnome/LightBulb.jpg"
 
-enabled_desktop_manager: "ly"
+enabled_desktop_manager: "lightdm"
