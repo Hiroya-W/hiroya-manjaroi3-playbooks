@@ -8,8 +8,7 @@
 - name: Install lightdm themes
   pacman:
     name:
-      - lightdm-webkit2-greeter
-      - lightdm-webkit-theme-litarvan
+      - lightdm-slick-greeter
     state: present
   become: yes
 
@@ -17,10 +16,4 @@
   copy:
     src: lightdm.conf
     dest: /etc/lightdm/lightdm.conf
-  become: yes
-
-- name: Copy lightdm-webkit2-greeter.conf
-  copy:
-    src: lightdm-webkit2-greeter.conf
-    dest: /etc/lightdm/lightdm-webkit2-greeter.conf
   become: yes
