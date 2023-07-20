@@ -18,7 +18,7 @@
 - name: Install grub2-themes
   command: ./install.sh -b -t {{ grub2_themes.theme }} -i {{ grub2_themes.icon }} -s {{ grub2_themes.screen_resolution }}
   args:
-    chdir: "{{ eww.work_dir }}/grub2-themes"
+    chdir: "{{ grub2_themes_repo.work_dir }}/grub2-themes"
   ignore_errors: yes
   register: result
   failed_when: "'All done!' not in result.stdout"
